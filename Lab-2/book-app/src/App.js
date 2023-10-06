@@ -11,30 +11,26 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
+      <div className="App">
 
-<Navbar bg="dark" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand href="/">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="read">Read</Nav.Link>
-            <Nav.Link href="create">Create</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
+        <Navbar bg="dark" data-bs-theme="dark">
+          <Container>
+            <Navbar.Brand href="/">Navbar</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="home">Home</Nav.Link>
+              <Nav.Link href="read">Read</Nav.Link>
+              <Nav.Link href="create">Create</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
 
-      <Routes>
-        <Route path="/home" element={<Content></Content>}></Route>
-        <Route path="/read" element={<Header></Header>}></Route>
-        <Route path="/create" element={<Footer></Footer>}></Route>
-      </Routes>
-
-      {/* <Header></Header>
-      <Content></Content>
-      <Footer></Footer> */}
-    </div>
-    </BrowserRouter>
+        <Routes>  
+          <Route path="/home" element={<Content></Content>}></Route>
+          <Route path="/read" element={<Header></Header>}></Route>
+          <Route path="/create" element={<Footer></Footer>}></Route>
+        </Routes>
+      </div>
+    </BrowserRouter>  
   );
 }
 
