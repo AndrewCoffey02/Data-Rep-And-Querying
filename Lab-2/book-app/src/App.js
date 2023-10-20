@@ -7,6 +7,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Create from './components/create';
+import Read from './components/read';
 
 function App() {
   return (
@@ -25,9 +27,9 @@ function App() {
         </Navbar>
 
         <Routes>  
-          <Route path="/home" element={<Content></Content>}></Route>
-          <Route path="/read" element={<Header></Header>}></Route>
-          <Route path="/create" element={<Footer></Footer>}></Route>
+          <Route path='/' element={<Content></Content>}></Route>
+          <Route path='/read' element={<Read></Read>}></Route>
+          <Route path='/create' element={<Create></Create>}></Route>
         </Routes>
       </div>
     </BrowserRouter>  
