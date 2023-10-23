@@ -1,8 +1,8 @@
 import BookItem from "./BookItem";
 
-function Book(props){
+function Books(props){
 
-    return props.myBook.map(
+    return props.myBooks.map(
         (book)=>{
             return <BookItem myBook={book} key={book.isbn}></BookItem>
         }
@@ -10,4 +10,4 @@ function Book(props){
 
 }
 
-export default Book;
+export default Books;
