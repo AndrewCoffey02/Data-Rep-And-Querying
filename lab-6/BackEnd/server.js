@@ -16,10 +16,10 @@ const bodyparser = require('body-parser');
 app.use(bodyparser.urlencoded({ extended : false}));
 app.use(bodyparser.json());
 
-app.post('/api/book', (req, res)=> {
+app.post('/api/books', (req, res)=> {
   console.log(req.body);
-  res.send("Data Recieved");
-})
+  res.send("Data Recieved123");
+});
 
 //main route sends hello world
 app.get('/', (req, res) => {
