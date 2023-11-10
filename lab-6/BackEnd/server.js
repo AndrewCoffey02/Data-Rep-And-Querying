@@ -16,13 +16,9 @@ const bodyparser = require('body-parser');
 app.use(bodyparser.urlencoded({ extended : false}));
 app.use(bodyparser.json());
 
-//get fname and lname and input into /name page
-app.get('/name', (req, res) =>{
-  res.send("Hello "+req.query.fname + " " + req.query.lname);
-})
-//post fname and lname and input into /name page
-app.post('/name', (req, res)=> {
-  res.send("Hello "+req.body.fname + " " + req.body.lname);
+app.post('/api/book', (req, res)=> {
+  console.log(req.body);
+  res.send("Data Recieved");
 })
 
 //main route sends hello world
