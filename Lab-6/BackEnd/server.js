@@ -18,10 +18,36 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// getting-started.js
+const mongoose = require('mongoose');
+
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb+srv://admin:admin@cluster0.xqnbbts.mongodb.net/?retryWrites=true&w=majority');
+
+  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+}
+
+const kittySchema = new mongoose.Schema({
+  title: String,
+  cover: String,
+  author: String
+});
+
+const bookMode1 = mongoose.model('books', kittySchema);
+
 //used to parse the body of a http request
 app.post('/api/books', (req, res) =>{
     console.log(req.body);
-    res.send("Data Received");
+    bookMode1.create({
+      title: req.body.title,
+      cover: req.body.cover,
+      author: req.body.author
+    })
+
+    .then(() => {res.send("Book Created")})
+    .catch(() => {res.send("Book NOT Created")});
 });
 
 //listening to port 4000 for http request
