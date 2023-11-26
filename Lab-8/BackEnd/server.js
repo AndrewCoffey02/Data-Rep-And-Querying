@@ -72,7 +72,15 @@ app.get("/api/books/:id", async(req, res) => {
   let book = await bookMode1.findById(req.params.id);
   res.json(book);
 
-});
+})
+
+app.put("/api/books/:id", async(req, res)=> {
+
+  console.log("Update: "+req.params.id);
+
+  let book = await bookMode1.findByIdAndUpdate(req.params.id, req.body, {new:true});
+  res.send(book);
+})
 
 //listen for requests coming in
 app.listen(port, () => {

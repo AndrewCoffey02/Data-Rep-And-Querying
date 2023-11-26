@@ -8,6 +8,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Create from './Components/create';
 import Read from './Components/read';
 import Footer from './Components/footer';
+import Edit from './Components/edit';
 
 function App() {
   return (
@@ -33,11 +34,8 @@ function App() {
           <Route path='/read' element={<Read></Read>}></Route>
           <Route path='/create' element={<Create></Create>}></Route>
           <Route path='/Footer' element={<Footer></Footer>}></Route>
+          <Route path="/Edit/:id" element={<Edit></Edit>}></Route>
         </Routes>
-
-
-        
-        
       </div>
       </BrowserRouter>
   );
