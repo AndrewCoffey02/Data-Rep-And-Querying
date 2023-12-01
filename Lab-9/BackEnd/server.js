@@ -38,10 +38,12 @@ const kittySchema = new mongoose.Schema({
 //mongoose create
 const bookModel = mongoose.model('books', kittySchema);
 
+//used to delete books selected
 app.delete('/api/book/:id',async (req,res) => {
-
+  //console output
   console.log("Delete: "+req.params.id);
 
+  //select book and delete from database
   let book = await bookModel.findByIdAndDelete(req.params.id);
   res.send(book);
 })

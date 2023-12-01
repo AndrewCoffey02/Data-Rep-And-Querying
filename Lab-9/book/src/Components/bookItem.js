@@ -18,6 +18,7 @@ function BookItem(props){
                         
                     </blockquote>
                 </Card.Body>
+                {/* Added delete button to delete selected book */}
                 <Button variant='danger' onClick={
                     (e)=> {
                         e.preventDefault();
