@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 function BookItem(props){
     return(
@@ -17,11 +18,17 @@ function BookItem(props){
                         
                     </blockquote>
                 </Card.Body>
-                <Button variant='danger'>Delete</Button>
+                <Button variant='danger' onClick={
+                    (e)=> {
+                        e.preventDefault();
+
+                        axios.delete('http://localhost:4000/api/book/'+props.myBook._id)
+                        .then()
+                        .catch();
+                    }
+                }>Delete</Button>
                 <Link to={ '/edit/'+props.myBook._id} className='btn btn-primary'>Edit</Link>
             </Card>
-            
-            
         </div>
     );
 }

@@ -36,12 +36,20 @@ const kittySchema = new mongoose.Schema({
 });
 
 //mongoose create
-const bookMode1 = mongoose.model('books', kittySchema);
+const bookModel = mongoose.model('books', kittySchema);
+
+app.delete('/api/book/:id',async (req,res) => {
+
+  console.log("Delete: "+req.params.id);
+
+  let book = await bookModel.findByIdAndDelete(req.params.id);
+  res.send(book);
+})
 
 //used to parse the body of a http request
 app.post('/api/books', (req, res) =>{
     console.log(req.body);
-    bookMode1.create({
+    bookModel.create({
       title: req.body.title,
       cover: req.body.cover,
       author: req.body.author
@@ -60,7 +68,7 @@ app.get('/', (req, res) => {
 //get the book array and display it
 app.get('/api/books', async(req, res) =>{
     
-  let books = await bookMode1.find({});
+  let books = await bookModel.find({});
   res.json(books);
 
 })
@@ -69,7 +77,7 @@ app.get("/api/books/:id", async(req, res) => {
 
   console.log(req.params.id);
 
-  let book = await bookMode1.findById(req.params.id);
+  let book = await bookModel.findById(req.params.id);
   res.json(book);
 
 })
@@ -78,7 +86,7 @@ app.put("/api/books/:id", async(req, res)=> {
 
   console.log("Update: "+req.params.id);
 
-  let book = await bookMode1.findByIdAndUpdate(req.params.id, req.body, {new:true});
+  let book = await bookModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
   res.send(book);
 })
 
