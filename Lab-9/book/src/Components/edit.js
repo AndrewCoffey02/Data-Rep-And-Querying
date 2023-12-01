@@ -2,15 +2,19 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 export default function Edit() {
     let {id} = useParams();
 
+    //book params
     const [title, setTitle] = useState('');
     const [cover, setCover] = useState('');
     const [author, setAuthor] = useState('');
 
+    //call navigate method
     const navigate = useNavigate();
 
+    //request the book selected
     useEffect(
         ()=>{
 
@@ -27,7 +31,8 @@ export default function Edit() {
             );
         },[]
     );
-
+    
+    //make changes to book 
     const handleSubmit = (e)=>{
         e.preventDefault();
 
@@ -46,6 +51,8 @@ export default function Edit() {
                 console.log(error)
             });
     }
+
+    //return book with changes
     return (
         <div>
             <h2>Hello from Edit component!</h2>

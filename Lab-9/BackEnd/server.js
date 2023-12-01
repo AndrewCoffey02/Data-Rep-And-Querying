@@ -83,7 +83,7 @@ app.get("/api/books/:id", async(req, res) => {
   res.json(book);
 
 })
-
+//updates the book
 app.put("/api/books/:id", async(req, res)=> {
 
   console.log("Update: "+req.params.id);

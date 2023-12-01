@@ -24,10 +24,22 @@ function Read(){
             )
         }, []
     );
+    //reload the page
+    const Reload = (e) => {
+        axios.get('http://localhost:4000/api/books')
+        .then(
+            (response) => {//callback function
+            setData(response.data);
+        })
+        .catch(//callback error
+            (error) => {
+            console.log(error);
+        });
+    };
 
     return(
         <div>
-            <Books myBooks = {data}></Books>
+            <Books myBooks = {data} reload={Reload}></Books>
         </div>
     );
 }
