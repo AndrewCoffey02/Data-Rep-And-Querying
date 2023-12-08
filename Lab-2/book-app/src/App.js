@@ -28,6 +28,7 @@ function App() {
 
         <Routes>  
           <Route path='/' element={<Content></Content>}></Route>
+          <Route path='/home' element={<Content></Content>}></Route>
           <Route path='/read' element={<Read></Read>}></Route>
           <Route path='/create' element={<Create></Create>}></Route>
         </Routes>
